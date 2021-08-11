@@ -69,8 +69,8 @@ Seu projeto deve ter o comportamento parecido com o do gif abaixo quando finaliz
 # Data de entrega
 
   - Projeto individual;
-  - Serão `X` dias de projeto.
-  - Data de entrega para avaliação final do projeto: `DD/MM/YYYY - 14:00h`.
+  - Serão `3` dias de projeto.
+  - Data de entrega para avaliação final do projeto: `23/08/2021 - 14:00h`.
 
 ---
 
@@ -499,7 +499,7 @@ Para sinalizar que o seu projeto está pronto para o _"Code Review"_ dos seus co
 
   * No menu à direita, clique no _link_ **"Assignees"** e escolha **o seu usuário**;
 
-  * No menu à direita, clique no _link_ **"Reviewers"** e digite `students`, selecione o time `tryber/students-sd-00`.
+  * No menu à direita, clique no _link_ **"Reviewers"** e digite `students`, selecione o time `tryber/students-sd-014-b`.
 
 Caso tenha alguma dúvida, [aqui tem um video explicativo](https://vimeo.com/362189205).
 
