@@ -57,7 +57,33 @@ const minhaFetch = async () => {
      };
      itens.appendChild(createProductItemElement(objetoTemp));
    });
-   console.log(datas);
 };
+
+const requisicaoEndPoint = async (id) => {
+  const response = await fetch(`https://api.mercadolibre.com/items/${id}`);
+  const json = await response.json();
+  const data = json;
+  return data;
+};
+
+async function retornaId(event) {
+  if (event.target.classList.contains('item__add') === true) {
+    const botao = event.target.parentNode;
+    const sku = botao.firstChild.innerText;
+    const obj = await requisicaoEndPoint(sku);
+    const name = obj.title;
+    const salePrice = obj.price;
+    const objetoTemp = { sku, name, salePrice };
+    const ol = document.querySelector('.cart__items');
+    ol.appendChild(createCartItemElement(objetoTemp));
+  }
+}
+
+const itens = document.querySelector('.items');
+itens.addEventListener('click', retornaId);
+
+// section class = items vai ficar ouvindo
+// toda vez que qualuqer bottao for clicado
+// event.target 
 
 minhaFetch();
