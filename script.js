@@ -1,7 +1,7 @@
 const ol = document.querySelector('.cart__items');
 const totalPrice = document.querySelector('.total-price');
 const total = document.createElement('spam');
-total.innerHTML = 0.00
+total.innerHTML = 0.00;
 totalPrice.appendChild(total);
 let soma = 0;
 
@@ -44,11 +44,17 @@ function getSkuFromProductItem(item) {
   return item.querySelector('span.item__sku').innerText;
 }
 
+const subtrirPrice = (valor) => {
+  soma -= valor;
+  total.innerHTML = soma;
+};
+
 function cartItemClickListener(event) {
   const item = event.target;
+  const valor = item.id;
  ol.removeChild(item);
  saveList();
- console.log();
+ subtrirPrice(valor);
 }
 
 ol.addEventListener('dblclick', cartItemClickListener);
@@ -58,6 +64,7 @@ function createCartItemElement({ sku, name, salePrice }) {
   li.className = 'cart__item';
   li.innerText = `SKU: ${sku} | NAME: ${name} | PRICE: $${salePrice}`;
   li.addEventListener('click', cartItemClickListener);
+  li.id = salePrice;
   return li;
 }
 
