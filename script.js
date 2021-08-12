@@ -51,7 +51,7 @@ const subtrirPrice = (valor) => {
 
 function cartItemClickListener(event) {
   const item = event.target;
-  const valor = item.id;
+  const valor = Number(item.id);
  ol.removeChild(item);
  saveList();
  subtrirPrice(valor);
@@ -108,6 +108,15 @@ async function criaProdutoNoCarrinho(event) {
 
 const itens = document.querySelector('.items');
 itens.addEventListener('click', criaProdutoNoCarrinho);
+
+const limparCarrinho = () => {
+  ol.innerHTML = '';
+  saveList();
+  total.innerHTML = 0;
+};
+
+const buttonClear = document.querySelector('.empty-cart');
+buttonClear.addEventListener('click', limparCarrinho);
 
 minhaFetch();
 
