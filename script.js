@@ -38,6 +38,7 @@ function cartItemClickListener(event) {
   const item = event.target;
  ol.removeChild(item);
  saveList();
+ console.log();
 }
 
 ol.addEventListener('dblclick', cartItemClickListener);
@@ -84,6 +85,8 @@ async function criaProdutoNoCarrinho(event) {
     const objetoTemp = { sku, name, salePrice };
     ol.appendChild(createCartItemElement(objetoTemp));
     saveList();
+    somaPrice(objetoTemp)
+
   }
 }
 
@@ -95,3 +98,15 @@ minhaFetch();
 window.onload = () => {
   ol.innerHTML = localStorage.getItem('ol');
 };
+
+const totalPrice = document.querySelector('.total-price')
+const total = document.createElement('p');
+totalPrice.appendChild(total)
+let soma = 0
+
+async function somaPrice(objetoTemp) {
+  soma = soma + objetoTemp.salePrice
+  total.innerHTML = `Preço Total: R$ ${soma.toFixed(2)}`
+}
+
+
