@@ -4,6 +4,7 @@ const total = document.createElement('spam');
 total.innerHTML = 0.00;
 totalPrice.appendChild(total);
 let soma = 0;
+const loading = document.querySelector('.loading')
 
 function saveList() {
   localStorage.setItem('ol', ol.innerHTML);
@@ -83,6 +84,7 @@ const minhaFetch = async () => {
      };
      itens.appendChild(createProductItemElement(objetoTemp));
    });
+   loading.innerHTML = ""
 };
 
 const requisicaoEndPoint = async (id) => {
