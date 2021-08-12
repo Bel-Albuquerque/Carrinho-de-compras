@@ -40,7 +40,7 @@ function cartItemClickListener(event) {
  saveList();
 }
 
-ol.addEventListener('click', cartItemClickListener);
+ol.addEventListener('dblclick', cartItemClickListener);
 
 function createCartItemElement({ sku, name, salePrice }) {
   const li = document.createElement('li');
