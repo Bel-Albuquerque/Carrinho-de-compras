@@ -1,6 +1,7 @@
 const ol = document.querySelector('.cart__items');
 const totalPrice = document.querySelector('.total-price');
-const total = document.createElement('p');
+const total = document.createElement('spam');
+total.innerHTML = 0.00
 totalPrice.appendChild(total);
 let soma = 0;
 
@@ -10,7 +11,7 @@ function saveList() {
 
 async function somaPrice(objetoTemp) {
   soma += objetoTemp.salePrice;
-  total.innerHTML = `Preço Total: R$ ${soma.toFixed(2)}`;
+  total.innerHTML = soma;
 }
 
 function createProductImageElement(imageSource) {
