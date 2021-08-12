@@ -1,7 +1,16 @@
 const ol = document.querySelector('.cart__items');
+const totalPrice = document.querySelector('.total-price');
+const total = document.createElement('p');
+totalPrice.appendChild(total);
+let soma = 0;
 
 function saveList() {
   localStorage.setItem('ol', ol.innerHTML);
+}
+
+async function somaPrice(objetoTemp) {
+  soma += objetoTemp.salePrice;
+  total.innerHTML = `Preço Total: R$ ${soma.toFixed(2)}`;
 }
 
 function createProductImageElement(imageSource) {
@@ -85,8 +94,7 @@ async function criaProdutoNoCarrinho(event) {
     const objetoTemp = { sku, name, salePrice };
     ol.appendChild(createCartItemElement(objetoTemp));
     saveList();
-    somaPrice(objetoTemp)
-
+    somaPrice(objetoTemp);
   }
 }
 
@@ -98,15 +106,3 @@ minhaFetch();
 window.onload = () => {
   ol.innerHTML = localStorage.getItem('ol');
 };
-
-const totalPrice = document.querySelector('.total-price')
-const total = document.createElement('p');
-totalPrice.appendChild(total)
-let soma = 0
-
-async function somaPrice(objetoTemp) {
-  soma = soma + objetoTemp.salePrice
-  total.innerHTML = `Preço Total: R$ ${soma.toFixed(2)}`
-}
-
-
