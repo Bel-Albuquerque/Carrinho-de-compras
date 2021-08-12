@@ -1,3 +1,5 @@
+const ol = document.querySelector('.cart__items');
+
 function createProductImageElement(imageSource) {
   const img = document.createElement('img');
   img.className = 'item__image';
@@ -29,8 +31,11 @@ function getSkuFromProductItem(item) {
 }
 
 function cartItemClickListener(event) {
-  // coloque seu código aqui
+  const item = event.target;
+ ol.removeChild(item);
 }
+
+ol.addEventListener('dblclick', cartItemClickListener);
 
 function createCartItemElement({ sku, name, salePrice }) {
   const li = document.createElement('li');
@@ -74,16 +79,11 @@ async function retornaId(event) {
     const name = obj.title;
     const salePrice = obj.price;
     const objetoTemp = { sku, name, salePrice };
-    const ol = document.querySelector('.cart__items');
     ol.appendChild(createCartItemElement(objetoTemp));
   }
 }
 
 const itens = document.querySelector('.items');
 itens.addEventListener('click', retornaId);
-
-// section class = items vai ficar ouvindo
-// toda vez que qualuqer bottao for clicado
-// event.target 
 
 minhaFetch();
