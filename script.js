@@ -76,6 +76,7 @@ const minhaFetch = async () => {
    const json = await response.json();
    const datas = json.results;
    const itens = document.querySelector('.items');
+   itens.removeChild(loading);
    datas.forEach((produto) => {
      const objetoTemp = {
        sku: produto.id,
@@ -84,7 +85,6 @@ const minhaFetch = async () => {
      };
      itens.appendChild(createProductItemElement(objetoTemp));
    });
-   loading.innerHTML = '';
 };
 
 const requisicaoEndPoint = async (id) => {
